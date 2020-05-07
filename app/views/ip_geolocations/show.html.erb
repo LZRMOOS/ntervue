@@ -1,0 +1,17 @@
+<p>
+  <strong>IP Address:</strong>
+  <%= @ip_geolocation.ip_address.html_safe %>
+</p>
+
+<p>
+  <strong>Geolocation:</strong>
+  <%= @ip_geolocation.geolocation %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= content_tag @ip_geolocation.notes %>
+</p>
+
+<%= link_to 'Edit', edit_ip_geolocation_path(@ip_geolocation) %> |
+<%= link_to 'Back', ip_geolocations_path %>

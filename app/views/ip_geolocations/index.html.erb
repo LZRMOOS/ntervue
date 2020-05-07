@@ -1,0 +1,23 @@
+<h1>IP Geolocations</h1>
+<%= link_to 'New IP Geolocation', new_ip_geolocation_path %>
+<table>
+  <tr>
+    <th>IP Address</th>
+    <th>Geolocation</th>
+    <th>Notes</th>
+    <th></th>
+  </tr>
+
+  <% @ip_geolocations.each do |ip_geolocation| %>
+    <tr>
+      <td><%= ip_geolocation.ip_address.html_safe %></td>
+      <td><%= ip_geolocation.geolocation.html_safe %></td>
+      <td><%= ip_geolocation.notes.html_safe %></td>
+      <td><%= link_to 'Show', ip_geolocation_path(ip_geolocation) %></td>
+      <td><%= link_to 'Edit', edit_ip_geolocation_path(ip_geolocation) %></td>
+      <td><%= link_to 'Destroy', destroy_ip_geolocation_path(ip_geolocation),
+                      method: :get,
+                      data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
