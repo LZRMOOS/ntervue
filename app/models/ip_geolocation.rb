@@ -1,4 +1,19 @@
+# == Schema Information
+#
+# Table name: ip_geolocations
+#
+#  id          :integer          not null, primary key
+#  ip_address  :string
+#  geolocation :string
+#  notes       :text
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  user_id     :integer
+#
+
 class IpGeolocation < ApplicationRecord
   validates :ip_address, presence: true, length: { minimum: 5, maximum: 50 }
   validates :notes, presence: true
+
+  belongs_to :user
 end

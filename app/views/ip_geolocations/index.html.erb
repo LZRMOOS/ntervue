@@ -21,3 +21,6 @@
     </tr>
   <% end %>
 </table>
+
+<td><%= link_to 'User Settings', user_path(current_user), method: :get %></td>
+<td><%= link_to 'Logout', logout_path, method: :get %></td>

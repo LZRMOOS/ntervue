@@ -1,0 +1,18 @@
+<h1>IP Geolocations Database</h1>
+<% if logged_in? %>
+  <h1>You are Logged In, <%= current_user.username %></h1>
+<% else %>
+  To access your IP Geolocations either sign in to an existing account, or <%= link_to 'sign up', new_user_path %> for a new account.
+<% end %>
+<p>
+  <%= form_tag '/login' do %>
+    <%= label_tag :username%>
+    <%= text_field_tag :username %>
+    <%= label_tag :password%>
+    <%= password_field_tag :password%>
+    <%= submit_tag "Login"%>
+  <%end%>
+</p>
+<% if flash[:alert] %>
+  <div class="alert alert-info"><%= flash[:alert] %></div>
+<% end %>

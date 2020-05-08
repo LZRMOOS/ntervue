@@ -1,8 +1,6 @@
 class IpGeolocationsController < ApplicationController
-  http_basic_authenticate_with name: 'wei', password: 'pw', only: [:index, :show, :new, :edit, :create, :update, :destroy]
-
   def index
-    @ip_geolocations = IpGeolocation.all
+    @ip_geolocations = IpGeolocation.where("user_id = #{current_user.id}")
   end
 
   def show
@@ -20,6 +18,7 @@ class IpGeolocationsController < ApplicationController
   def create
     # render plain: params[:ip_geolocation].inspect
     @ip_geolocation = IpGeolocation.new(params[:ip_geolocation])
+    @ip_geolocation.user = current_user
     @ip_geolocation.geolocation = IpLookup.run(
       ip_address: params[:ip_address],
       key: '1F6B6D69626645D8'
