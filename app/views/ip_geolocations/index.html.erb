@@ -1,33 +1,36 @@
-<div class="container-fluid">
-  <h1>IP Geolocations</h1>
-  <%= link_to 'User Settings', user_path(current_user), method: :get %>
-  <br>
-  <%= link_to 'New IP Geolocation', new_ip_geolocation_path, method: :get %>
-  <table class="table table-hover table-responsive">
-    <thead class="thead-light">
-      <tr>
-        <th scope="col">IP Address</th>
-        <th scope="col">Geolocation</th>
-        <th scope="col">Notes</th>
-        <th scope="col"></th>
-        <th scope="col"></th>
-        <th scope="col"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @ip_geolocations.each do |ip_geolocation| %>
+<div class="columns is-centered">
+  <div class="column is-half">
+    <nav class="navbar" >
+      <div class="navbar-brand"><h1 class="title">IP Geolocations DB</h1></div>
+      <%= link_to 'User Settings', user_path(current_user), method: :get, class: 'button is-small' %>
+      <%= link_to 'New IP Geolocation', new_ip_geolocation_path, method: :get, class: 'button is-small' %>
+    </nav>
+    <table class="table is-hoverable is-striped">
+      <thead class="">
         <tr>
-          <th scope="row"><%= ip_geolocation.ip_address.html_safe %></th>
-          <td><%= ip_geolocation.geolocation.html_safe %></td>
-          <td><%= ip_geolocation.notes.html_safe %></td>
-          <td><%= link_to 'Show', ip_geolocation_path(ip_geolocation) %></td>
-          <td><%= link_to 'Edit', edit_ip_geolocation_path(ip_geolocation) %></td>
-          <td><%= link_to 'Destroy', destroy_ip_geolocation_path(ip_geolocation),
-                          method: :get,
-                          data: { confirm: 'Are you sure?' } %></td>
+          <th>IP Address</th>
+          <th>Geolocation</th>
+          <th>Notes</th>
+          <th></th>
+          <th></th>
+          <th></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <%= button_to 'Logout', logout_path, method: :get, class: :button %>
+      </thead>
+      <tbody>
+        <% @ip_geolocations.each do |ip_geolocation| %>
+          <tr>
+            <th><%= ip_geolocation.ip_address.html_safe %></th>
+            <td><%= ip_geolocation.geolocation.html_safe %></td>
+            <td><%= ip_geolocation.notes.html_safe %></td>
+            <td><%= link_to 'Show', ip_geolocation_path(ip_geolocation) %></td>
+            <td><%= link_to 'Edit', edit_ip_geolocation_path(ip_geolocation) %></td>
+            <td><%= link_to 'Destroy', destroy_ip_geolocation_path(ip_geolocation),
+                            method: :get,
+                            data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= button_to 'Logout', logout_path, method: :get, class: 'button is-danger' %>
+  </div>
 </div>

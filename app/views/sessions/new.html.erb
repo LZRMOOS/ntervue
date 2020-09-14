@@ -1,25 +1,26 @@
 <div class="columns">
   <div class="column is-one-third is-offset-one-third mt-5">
-  <h1 class="title">IP Geolocations DB</h1>
-  <% if logged_in? %>
-    <h1>You are Logged In, <%= current_user.username %></h1>
-  <% else %>
+    <h1 class="title">IP Geolocations DB</h1>
+    <% if logged_in? %>
+      <p>You are already logged in, <%= current_user.username %>.</p>
+      <%= button_to 'Logout', logout_path, method: :get, class: 'button is-danger' %>
+    <% else %>
       <p class="content">To access your IP Geolocations either sign in to an existing account, or <%= link_to 'sign up', new_user_path %> for a new account.</p>
-  <% end %>
-    <div class="container">
-      <%= form_for :user, new_session_path: { action: :create }, html: { class: :control } do |f| %>
-        <div class="field">
-          <%= f.label 'Username', class: 'label' %>
-          <%= f.text_field :username, class: 'input' %>
-        </div>
-        <div class="field">
-          <%= f.label 'Password', class: 'label' %>
-          <%= f.text_field :password, class: 'input' %>
-        </div>
-        <div class="control">
-          <%= f.submit 'Login', class: 'button is-primary' %>
-        </div>
-      <% end %>
-    </div>
+      <div class="container">
+        <%= form_for :user, new_session_path: { action: :create }, html: { class: :control } do |f| %>
+          <div class="field">
+            <%= f.label 'Username', class: 'label' %>
+            <%= f.text_field :username, class: 'input' %>
+          </div>
+          <div class="field">
+            <%= f.label 'Password', class: 'label' %>
+            <%= f.text_field :password, class: 'input' %>
+          </div>
+          <div class="control">
+            <%= f.submit 'Login', class: 'button is-primary' %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>

@@ -1,32 +1,37 @@
-<div class="container-fluid">
-  <h1>User settings</h1>
-  Feel free to edit your username, or your email address.
-  <p>
-    <strong>Username:</strong>
-    <%= @user.username %>
-  </p>
+<div class="columns is-centered">
+  <div class="column is-half">
+    <h1 class="title">User Settings</h1>
+    <p>You can edit your username, or your email address.</p>
+    <div class="container">
+      <p>
+        <strong>Username:</strong>
+        <%= @user.username %>
+      </p>
 
-  <p>
-    <strong>Email:</strong>
-    <%= @user.email %>
-  </p>
+      <p>
+        <strong>Email:</strong>
+        <%= @user.email %>
+      </p>
 
-  <%= link_to 'Edit', edit_user_path(@user) %>
+      <%= link_to 'Edit', edit_user_path(@user), class: 'button is-info is-outlined is-small' %>
+      <%= link_to 'Back', ip_geolocations_path, class: 'button is-outlined is-small' %>
+    </div>
 
-  <% if @user.admin %>
-    <p>Administrator privileges enabled. Users detailed below:</p>
-    <table>
-      <tr>
-        <th>Username</th>
-        <th>Email</th>
-      </tr>
-      <% @users.each do |user| %>
-        <td><%= user.username %></td>
-        <td><%= user.email %></td>
-        <td><%= link_to 'Delete User', user_path(user),
-                        method: :delete,
-                        data: { confirm: "Are you sure you want to delete #{user.username}?" } %></td>
-      <% end %>
-    </table>
-  <% end %>
+    <% if @user.admin %>
+      <p>Administrator privileges enabled. Users detailed below:</p>
+      <table>
+        <tr>
+          <th>Username</th>
+          <th>Email</th>
+        </tr>
+        <% @users.each do |user| %>
+          <td><%= user.username %></td>
+          <td><%= user.email %></td>
+          <td><%= link_to 'Delete User', user_path(user),
+                          method: :delete,
+                          data: { confirm: "Are you sure you want to delete #{user.username}?" } %></td>
+        <% end %>
+      </table>
+    <% end %>
+  </div>
 </div>

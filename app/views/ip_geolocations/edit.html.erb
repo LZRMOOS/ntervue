@@ -1,32 +1,15 @@
-<div class="container-fluid">
-  <h1>Edit IP Geolocation</h1>
-
-  <%= form_with(model: @ip_geolocation, local: true) do |form| %>
-
-    <% if @ip_geolocation.errors.any? %>
-      <div id="error_explanation">
-        <h2>
-          <%= pluralize(@ip_geolocation.errors.count, "error") %> prohibited
-          this article from being saved:
-        </h2>
-        <ul>
-          <% @ip_geolocation.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
+<div class="columns is-centered">
+  <div class="column is-half">
+    <h1 class="title">Edit IP Geolocation</h1>
+    <%= form_for @ip_geolocation, ip_geolocation_path: { action: :update }, html: { class: :control } do |f| %>
+      <div class="field">
+        <%= f.label 'Notes', class: 'label' %>
+        <%= f.text_area :notes, class: 'input' %>
+      </div>
+      <div class="control">
+        <%= f.submit 'Save', class: 'button is-primary is-outlined is-small' %>
+        <%= link_to 'Back', ip_geolocations_path, class: 'button is-outlined is-small' %>
       </div>
     <% end %>
-
-    <p>
-      <%= form.label :notes %><br>
-      <%= form.text_area :notes %>
-    </p>
-
-    <p>
-      <%= form.submit %>
-    </p>
-
-  <% end %>
-
-  <%= link_to 'Back', ip_geolocations_path %>
+  </div>
 </div>

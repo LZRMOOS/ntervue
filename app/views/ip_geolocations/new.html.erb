@@ -1,35 +1,19 @@
-<div class="container-fluid">
-  <h1>IP Geolocations</h1>
-
-  <%= form_with scope: :ip_geolocation, url: ip_geolocations_path, local: true do |form| %>
-
-    <% if @ip_geolocation.errors.any? %>
-      <div id="error_explanation">
-        <h2>
-          <%= pluralize(@ip_geolocation.errors.count, "error") %> prohibited
-          this ip address from being saved:
-        </h2>
-        <ul>
-          <% @ip_geolocation.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
+<div class="columns is-centered">
+  <div class="column is-half">
+    <h1 class="title">New IP Geolocation</h1>
+    <%= form_for @ip_geolocation, ip_geolocation_path: { action: :create }, html: { class: :control } do |f| %>
+      <div class="field">
+        <%= f.label 'IP Address', class: 'label' %>
+        <%= f.text_field :ip_address, class: 'input' %>
+      </div>
+      <div class="field">
+        <%= f.label 'Notes', class: 'label' %>
+        <%= f.text_area :notes, class: 'input' %>
+      </div>
+      <div class="control">
+        <%= f.submit 'Save', class: 'button is-primary is-small is-outlined' %>
+        <%= link_to 'Back', ip_geolocations_path, class: 'button is-outlined is-small' %>
       </div>
     <% end %>
-
-    <p>
-      <%= form.label :ip_address %><br>
-      <%= form.text_field :ip_address %>
-    </p>
-
-    <p>
-      <%= form.label :notes %><br>
-      <%= form.text_area :notes %>
-    </p>
-
-    <p>
-      <%= form.submit %>
-    </p>
-  <% end %>
-  <%= link_to 'Back', ip_geolocations_path %>
+  </div>
 </div>

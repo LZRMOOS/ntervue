@@ -16,7 +16,6 @@ class IpGeolocationsController < ApplicationController
   end
 
   def create
-    # render plain: params[:ip_geolocation].inspect
     @ip_geolocation = IpGeolocation.new(params[:ip_geolocation])
     @ip_geolocation.user = current_user
     @ip_geolocation.geolocation = IpLookup.run(
@@ -27,6 +26,7 @@ class IpGeolocationsController < ApplicationController
     if @ip_geolocation.save
       redirect_to @ip_geolocation
     else
+      flash.now.alert = @ip_geolocation.errors.full_messages if @ip_geolocation.errors.any?
       render 'new'
     end
   end
@@ -37,6 +37,9 @@ class IpGeolocationsController < ApplicationController
     if @ip_geolocation.update(params[:ip_geolocation])
       redirect_to @ip_geolocation
     else
+      if @ip_geolocation.errors.any?
+        flash.now.alert = @ip_geolocation.errors.full_messages
+      end
       render 'edit'
     end
   end

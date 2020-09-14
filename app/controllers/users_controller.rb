@@ -24,6 +24,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to ip_geolocations_path
     else
+      flash.now.alert = @ip_geolocation.errors.full_messages if @ip_geolocation.errors.any?
       render 'new'
     end
   end
