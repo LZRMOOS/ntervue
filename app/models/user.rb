@@ -17,4 +17,5 @@ class User < ApplicationRecord
   has_secure_password
 
   has_many :ip_geolocations
+  has_many :messages
 end

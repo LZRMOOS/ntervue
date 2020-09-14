@@ -20,11 +20,11 @@ class UsersController < ApplicationController
     @user.username = params[:user][:username]
     @user.passwd = params[:user][:password]
 
-    if @user.save!
+    if @user.save
       session[:user_id] = @user.id
       redirect_to ip_geolocations_path
     else
-      flash.now.alert = @ip_geolocation.errors.full_messages if @ip_geolocation.errors.any?
+      flash.now.alert = @user.errors.full_messages if @user.errors.any?
       render 'new'
     end
   end

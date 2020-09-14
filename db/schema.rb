@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_08_223048) do
+ActiveRecord::Schema.define(version: 2020_09_14_233549) do
 
   create_table "ip_geolocations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "ip_address"
@@ -20,6 +20,14 @@ ActiveRecord::Schema.define(version: 2020_05_08_223048) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_ip_geolocations_on_user_id"
+  end
+
+  create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -33,4 +41,5 @@ ActiveRecord::Schema.define(version: 2020_05_08_223048) do
   end
 
   add_foreign_key "ip_geolocations", "users"
+  add_foreign_key "messages", "users"
 end

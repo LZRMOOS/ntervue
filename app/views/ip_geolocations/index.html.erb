@@ -1,12 +1,13 @@
 <div class="columns is-centered">
   <div class="column is-half">
+    <h1 class="title">IP Geolocations DB</h1>
     <nav class="navbar" >
-      <div class="navbar-brand"><h1 class="title">IP Geolocations DB</h1></div>
+      <%= link_to 'Messages', messages_path, method: :get, class: 'button is-small' %>
       <%= link_to 'User Settings', user_path(current_user), method: :get, class: 'button is-small' %>
-      <%= link_to 'New IP Geolocation', new_ip_geolocation_path, method: :get, class: 'button is-small' %>
+      <%= link_to 'New IP Geolocation', new_ip_geolocation_path, method: :get, class: 'button is-primary is-outlined is-small' %>
     </nav>
     <table class="table is-hoverable is-striped">
-      <thead class="">
+      <thead>
         <tr>
           <th>IP Address</th>
           <th>Geolocation</th>
@@ -31,6 +32,6 @@
         <% end %>
       </tbody>
     </table>
-    <%= button_to 'Logout', logout_path, method: :get, class: 'button is-danger' %>
+    <%= button_to 'Logout', logout_path, method: :get, class: 'button is-small is-danger' %>
   </div>
 </div>

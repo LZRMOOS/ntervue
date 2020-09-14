@@ -23,7 +23,7 @@ class IpGeolocationsController < ApplicationController
       key: '1F6B6D69626645D8'
     )
 
-    if @ip_geolocation.save!
+    if @ip_geolocation.save
       redirect_to @ip_geolocation
     else
       flash.now.alert = @ip_geolocation.errors.full_messages if @ip_geolocation.errors.any?

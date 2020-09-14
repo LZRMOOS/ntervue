@@ -4,7 +4,7 @@
     <%= form_for @ip_geolocation, ip_geolocation_path: { action: :update }, html: { class: :control } do |f| %>
       <div class="field">
         <%= f.label 'Notes', class: 'label' %>
-        <%= f.text_area :notes, class: 'input' %>
+        <%= f.text_area :notes, class: 'textarea' %>
       </div>
       <div class="control">
         <%= f.submit 'Save', class: 'button is-primary is-outlined is-small' %>
