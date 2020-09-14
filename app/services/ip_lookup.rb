@@ -7,6 +7,7 @@ class IpLookup
     response = Net::HTTP.get_response(uri)
 
     hash_response_body = JSON.parse(response.body)
+    Rails.logger.info("iplookuprunner: #{hash_response_body['city']}")
     hash_response_body['city'] + ', ' + hash_response_body['country']
   end
 end

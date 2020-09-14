@@ -19,11 +19,11 @@ class IpGeolocationsController < ApplicationController
     @ip_geolocation = IpGeolocation.new(params[:ip_geolocation])
     @ip_geolocation.user = current_user
     @ip_geolocation.geolocation = IpLookup.run(
-      ip_address: params[:ip_address],
+      ip_address: params[:ip_geolocation][:ip_address],
       key: '1F6B6D69626645D8'
     )
 
-    if @ip_geolocation.save
+    if @ip_geolocation.save!
       redirect_to @ip_geolocation
     else
       flash.now.alert = @ip_geolocation.errors.full_messages if @ip_geolocation.errors.any?

@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     @user.username = params[:user][:username]
     @user.passwd = params[:user][:password]
 
-    if @user.save
+    if @user.save!
       session[:user_id] = @user.id
       redirect_to ip_geolocations_path
     else
