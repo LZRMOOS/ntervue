@@ -10,7 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_14_233549) do
+ActiveRecord::Schema.define(version: 2020_09_15_174859) do
+
+  create_table "car_coolnesses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "coolness_score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "car_make_id"
+    t.index ["car_make_id"], name: "index_car_coolnesses_on_car_make_id"
+  end
+
+  create_table "car_makes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "car_models", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.integer "year"
+    t.string "color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "car_make_id"
+    t.index ["car_make_id"], name: "index_car_models_on_car_make_id"
+  end
 
   create_table "ip_geolocations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "ip_address"
@@ -40,6 +64,8 @@ ActiveRecord::Schema.define(version: 2020_09_14_233549) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "car_coolnesses", "car_makes"
+  add_foreign_key "car_models", "car_makes"
   add_foreign_key "ip_geolocations", "users"
   add_foreign_key "messages", "users"
 end

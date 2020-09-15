@@ -1,0 +1,15 @@
+<!--##################-->
+<!--# Not relevant!! #-->
+<!--##################-->
+<div class="container">
+  <p>Using MySQL JOIN clauses, What is the query to SELECT the <b>name</b> of <b>car_makes</b> with a <b>coolness_score</b> greater than 3 and a <b>year</b> less than 2017?</p>
+  <%= form_with(url: send_query_path, method: 'put') do |f| %>
+    <div class="field">
+      <%= f.label :mysql_query, 'MySQL Query (Note: SELECT is already appended to the text input, so start with what comes after):', class: 'label' %>
+      <%= f.text_area :query, class: 'textarea', placeholder: 'SELECT ____________________' %>
+    </div>
+    <div class="control">
+      <%= f.submit 'Execute', class: 'button is-primary is-outlined is-small' %>
+    </div>
+  <% end %>
+</div>

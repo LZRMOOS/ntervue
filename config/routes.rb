@@ -7,5 +7,10 @@ Rails.application.routes.draw do
   get 'logout', to: 'sessions#destroy', as: 'logout'
   resources :messages, only: %i[create index destroy]
   delete 'messages', to: 'messages#destroy_all', as: 'destroy_all'
+  ##################
+  # Not relevant!! #
+  ##################
+  resources :questions, only: :index
+  put 'query', to: 'questions#query', as: 'send_query'
   root 'ip_geolocations#index'
 end

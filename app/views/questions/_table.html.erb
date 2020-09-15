@@ -1,0 +1,72 @@
+<!--##################-->
+<!--# Not relevant!! #-->
+<!--################## -->
+<div class="level is-vcentered">
+   <div class="level-item has-text-centered">
+     <div>
+       <p class="heading">car_makes</p>
+       <table class="table is-narrow">
+         <thead>
+         <tr>
+           <th>id</th>
+           <th>name</th>
+         </tr>
+         </thead>
+         <tbody>
+         <% @car_makes&.each do |make| %>
+           <tr>
+             <td><%= make.id %></td>
+             <td><%= make.name %></td>
+           </tr>
+         <% end %>
+         </tbody>
+       </table>
+     </div>
+   </div>
+   <div class="level-item has-text-centered">
+     <div>
+       <p class="heading">car_models</p>
+       <table class="table is-narrow">
+         <thead>
+         <th>id</th>
+         <th>name</th>
+         <th>year</th>
+         <th>color</th>
+         <th>car_make_id</th>
+         </thead>
+         <tbody>
+         <% @car_models&.each do |model| %>
+           <tr>
+             <td><%= model.id %></td>
+             <td><%= model.name %></td>
+             <td><%= model.year %></td>
+             <td><%= model.color %></td>
+             <td><%= model.car_make.id %></td>
+           </tr>
+         <% end %>
+         </tbody>
+       </table>
+     </div>
+   </div>
+   <div class="level-item has-text-centered">
+     <div>
+       <p class="heading">car_coolnesses</p>
+       <table class="table is-narrow">
+         <thead>
+         <th>id</th>
+         <th>coolness_score</th>
+         <th>car_make_id</th>
+         </thead>
+         <tbody>
+         <% @car_coolnesses&.each do |coolness| %>
+           <tr>
+             <td><%= coolness.id %></td>
+             <td><%= coolness.coolness_score %></td>
+             <td><%= coolness.car_make.id %></td>
+           </tr>
+         <% end %>
+         </tbody>
+       </table>
+     </div>
+   </div>
+ </div>

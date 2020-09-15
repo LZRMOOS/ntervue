@@ -1,3 +1,6 @@
+##################
+# Not relevant!! #
+##################
 class ApplicationController < ActionController::Base
   before_action :authorized
   helper_method :current_user

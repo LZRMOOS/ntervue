@@ -1,12 +1,12 @@
 # == Schema Information
 #
-# Table name: messages
+# Table name: car_coolnesses
 #
-#  id         :integer          not null, primary key
-#  body       :text(65535)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  user_id    :integer
+#  id             :integer          not null, primary key
+#  coolness_score :integer
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  car_make_id    :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
