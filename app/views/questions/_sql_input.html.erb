@@ -7,7 +7,7 @@
   <%= form_with(url: send_query_path, method: 'put') do |f| %>
     <div class="field">
       <%= f.label :mysql_query, 'MySQL Query (Note: SELECT is already appended to the text input, so start with what comes after):', class: 'label' %>
-      <%= f.text_area :query, class: 'textarea', placeholder: 'SELECT ____________________' %>
+      <%= f.text_area :query, class: 'textarea', value: @prev_query, placeholder: 'SELECT ____________________' %>
     </div>
     <div class="control">
       <%= f.submit 'Execute', class: 'button is-primary is-outlined is-small' %>
