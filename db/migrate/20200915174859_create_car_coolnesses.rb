@@ -1,7 +1,7 @@
 class CreateCarCoolnesses < ActiveRecord::Migration[5.2]
   def change
     create_table :car_coolnesses do |t|
-      t.integer :coolness_score
+      t.integer :score
 
       t.timestamps
     end

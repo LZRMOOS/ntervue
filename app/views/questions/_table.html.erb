@@ -54,14 +54,14 @@
        <table class="table is-narrow">
          <thead>
          <th>id</th>
-         <th>coolness_score</th>
+         <th>score</th>
          <th>car_make_id</th>
          </thead>
          <tbody>
          <% @car_coolnesses&.each do |coolness| %>
            <tr>
              <td><%= coolness.id %></td>
-             <td><%= coolness.coolness_score %></td>
+             <td><%= coolness.score %></td>
              <td><%= coolness.car_make.id %></td>
            </tr>
          <% end %>

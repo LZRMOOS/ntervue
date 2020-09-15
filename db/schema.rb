@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_15_174859) do
+ActiveRecord::Schema.define(version: 2020_09_15_202253) do
 
   create_table "car_coolnesses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "coolness_score"
+    t.integer "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "car_make_id"
