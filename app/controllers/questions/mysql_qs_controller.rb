@@ -1,7 +1,7 @@
 ##################
 # Not relevant!! #
 ##################
-class QuestionsController < ApplicationController
+class Questions::MysqlQsController < ApplicationController
   skip_before_action :authorized
 
   def index
@@ -20,11 +20,11 @@ class QuestionsController < ApplicationController
     else
       flash.notice = results
     end
-    redirect_to questions_path(prev_query: required_params)
+    redirect_to questions_mysql_qs_path(prev_query: required_params)
   rescue ActiveRecord::StatementInvalid => e
     Rails.logger.info("wei error #{e}")
     flash.alert = e
-    redirect_to questions_path(prev_query: required_params)
+    redirect_to questions_mysql_qs_path(prev_query: required_params)
   end
 
   private

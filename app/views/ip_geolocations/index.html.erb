@@ -1,37 +1,53 @@
-<div class="columns is-centered">
-  <div class="column is-half">
-    <h1 class="title">IP Geolocations DB</h1>
-    <nav class="navbar" >
-      <%= link_to 'Messages', messages_path, method: :get, class: 'button is-small' %>
-      <%= link_to 'User Settings', user_path(current_user), method: :get, class: 'button is-small' %>
-      <%= link_to 'New IP Geolocation', new_ip_geolocation_path, method: :get, class: 'button is-primary is-outlined is-small' %>
-    </nav>
-    <table class="table is-hoverable is-striped">
-      <thead>
-        <tr>
-          <th>IP Address</th>
-          <th>Geolocation</th>
-          <th>Notes</th>
-          <th></th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @ip_geolocations.each do |ip_geolocation| %>
-          <tr>
-            <th><%= ip_geolocation.ip_address.html_safe %></th>
-            <td><%= ip_geolocation.geolocation.html_safe %></td>
-            <td><%= ip_geolocation.notes.html_safe %></td>
-            <td><%= link_to 'Show', ip_geolocation_path(ip_geolocation) %></td>
-            <td><%= link_to 'Edit', edit_ip_geolocation_path(ip_geolocation) %></td>
-            <td><%= link_to 'Destroy', destroy_ip_geolocation_path(ip_geolocation),
-                            method: :get,
-                            data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-    <%= button_to 'Logout', logout_path, method: :get, class: 'button is-small is-danger' %>
+<section class="hero is-small is-dark is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        IP Geolocations DB
+      </h1>
+    </div>
   </div>
-</div>
+  <div class="hero-foot">
+    <nav class="tabs">
+      <div class="container">
+        <ul>
+          <li><%= link_to 'Messages', messages_path, method: :get %></li>
+          <li><%= link_to 'User Settings', user_path(current_user), method: :get %></li>
+          <li><%= link_to 'Logout', logout_path, method: :get %></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</section>
+<section class="section">
+  <div class="columns is-centered">
+    <div class="column is-half">
+      <table class="table is-hoverable is-striped">
+        <thead>
+          <tr>
+            <th>IP Address</th>
+            <th>Geolocation</th>
+            <th>Notes</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @ip_geolocations.each do |ip_geolocation| %>
+            <tr>
+              <th><%= ip_geolocation.ip_address.html_safe %></th>
+              <td><%= ip_geolocation.geolocation.html_safe %></td>
+              <td><%= ip_geolocation.notes.html_safe %></td>
+              <td><%= link_to 'Show', ip_geolocation_path(ip_geolocation) %></td>
+              <td><%= link_to 'Edit', edit_ip_geolocation_path(ip_geolocation) %></td>
+              <td><%= link_to 'Destroy', destroy_ip_geolocation_path(ip_geolocation),
+                              method: :get,
+                              data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= link_to 'New IP Geolocation', new_ip_geolocation_path, method: :get, class: 'button is-primary is-small' %>
+    </div>
+  </div>
+</section>

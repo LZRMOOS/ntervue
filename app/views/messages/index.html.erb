@@ -1,6 +1,14 @@
-<div class="container">
+<section class="hero is-dark is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Messages
+      </h1>
+    </div>
+  </div>
+</section>
+<section class="section">
   <div class="container">
-    <h1 class="title">Messages</h1>
     <% if current_user.admin %><%= link_to 'Delete All', destroy_all_path, method: :delete, class: 'button is-small is-danger is-outlined', data: { confirm: 'Are you sure?' } %><% end %>
     <table class="table is-hoverable">
       <thead>
@@ -28,7 +36,7 @@
     </table>
     <%= form_for :message, new_message_path: { action: :create } do |f| %>
       <div class="field">
-        <%= f.label 'Message', class: 'label' %>
+        <%= f.label :message, 'New Message', class: 'label' %>
         <%= f.text_area :body, class: 'textarea', placeholder: 'Type a message here' %>
       </div>
       <div class="control">
@@ -37,4 +45,4 @@
       </div>
     <% end %>
   </div>
-</div>
+</section>

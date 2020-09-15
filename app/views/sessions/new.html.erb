@@ -1,11 +1,21 @@
+<section class="hero is-dark is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        IP Geolocations DB
+      </h1>
+      <h2 class="subtitle">
+        <p class="content">To access your IP Geolocations either sign in to an existing account, or <b><%= link_to 'sign up', new_user_path %></b> for a new account.</p>
+      </h2>
+    </div>
+  </div>
+</section>
 <div class="columns">
   <div class="column is-one-third is-offset-one-third mt-5">
-    <h1 class="title">IP Geolocations DB</h1>
     <% if logged_in? %>
       <p>You are already logged in, <%= current_user.username %>.</p>
       <%= button_to 'Logout', logout_path, method: :get, class: 'button is-danger' %>
     <% else %>
-      <p class="content">To access your IP Geolocations either sign in to an existing account, or <%= link_to 'sign up', new_user_path %> for a new account.</p>
       <div class="container">
         <%= form_for :user, new_session_path: { action: :create }, html: { class: :control } do |f| %>
           <div class="field">

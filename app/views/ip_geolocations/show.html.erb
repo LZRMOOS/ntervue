@@ -1,22 +1,32 @@
-<div class="columns is-centered">
-  <div class="column is-half">
-    <h1 class="title">IP Geolocation</h1>
-    <p>
-      <strong>IP Address:</strong>
-      <%= @ip_geolocation.ip_address.html_safe %>
-    </p>
-
-    <p>
-      <strong>Geolocation:</strong>
-      <%= @ip_geolocation.geolocation %>
-    </p>
-
-    <p>
-      <strong>Notes:</strong>
-      <%= @ip_geolocation.notes %>
-    </p>
-
-    <%= link_to 'Edit', edit_ip_geolocation_path(@ip_geolocation), class: 'button is-info is-outlined is-small' %>
-    <%= link_to 'Back', ip_geolocations_path, class: 'button is-outlined is-small' %>
+<section class="hero is-dark is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        IP Geolocation
+      </h1>
+    </div>
   </div>
-</div>
+</section>
+<section class="section">
+  <div class="columns is-centered">
+    <div class="column is-half">
+      <p>
+        <strong>IP Address:</strong>
+        <%= @ip_geolocation.ip_address.html_safe %>
+      </p>
+
+      <p>
+        <strong>Geolocation:</strong>
+        <%= @ip_geolocation.geolocation %>
+      </p>
+
+      <p>
+        <strong>Notes:</strong>
+        <%= @ip_geolocation.notes %>
+      </p>
+
+      <%= link_to 'Edit', edit_ip_geolocation_path(@ip_geolocation), class: 'button is-info is-outlined is-small' %>
+      <%= link_to 'Back', ip_geolocations_path, class: 'button is-outlined is-small' %>
+    </div>
+  </div>
+</section>
