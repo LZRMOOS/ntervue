@@ -4,8 +4,13 @@ require 'json'
 class IpLookup
   def self.run(ip_address:, key: '1F6B6D69626645D8')
     uri = URI.parse("https://ipinfo.io/#{ip_address}")
-    response = Net::HTTP.get_response(uri)
 
+    begin
+      response = Net::HTTP.get_response(uri)
+    rescue StandardError => e
+      Rails.logger.error("IpLookup failed: #{e}")
+    end
+    
     hash_response_body = JSON.parse(response.body)
 
     if hash_response_body['bogon'] == true
