@@ -7,17 +7,16 @@ class IpLookup
 
     begin
       response = Net::HTTP.get_response(uri)
+      return 'Not valid' if response.code == '404'
     rescue StandardError => e
       Rails.logger.error("IpLookup failed: #{e}")
     end
-    
+
     hash_response_body = JSON.parse(response.body)
 
     if hash_response_body['bogon'] == true
-      Rails.logger.info("not valid ip address #{ip_address}")
       'Bogon'
     else
-      Rails.logger.info("city for ip #{ip_address} is #{hash_response_body['city']}")
       hash_response_body['city'] + ', ' + hash_response_body['country']
     end
   end
