@@ -11,8 +11,13 @@
 #  user_id     :integer
 #
 
+require 'resolv'
 class IpGeolocation < ApplicationRecord
-  validates :ip_address, presence: true, length: { minimum: 5, maximum: 50 }
+  validates :ip_address,
+            presence: true,
+            format: {
+              with: Regexp.union(Resolv::IPv4::Regex, Resolv::IPv6::Regex)
+            }
   validates :notes, presence: true
 
   belongs_to :user

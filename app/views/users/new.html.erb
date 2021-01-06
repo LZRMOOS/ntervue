@@ -10,6 +10,7 @@
 <section>
   <div class="columns is-centered">
     <div class="column is-one-third">
+      Please enter a username and password to register for an IP Geolocations DB account.
       <%= form_for @user, html: { class: :control } do |f| %>
         <div class="container">
           <div class="field">
@@ -20,7 +21,7 @@
             <%= f.label :password, class: 'label' %>
             <%= f.password_field :password, class: 'input' %>
           </div>
-          <%= f.submit 'Create', class: 'button is-primary' %>
+          <%= f.submit 'Register', class: 'button is-primary' %>
         </div>
       <%end%>
     </div>
