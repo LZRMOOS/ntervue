@@ -10,9 +10,9 @@
     <nav class="tabs">
       <div class="container">
         <ul>
-          <li><%= link_to 'Messages', messages_path, method: :get %></li>
-          <li><%= link_to 'User Settings', user_path(current_user), method: :get %></li>
-          <li><%= link_to 'Logout', logout_path, method: :get %></li>
+          <li><%= button_to 'Messages', messages_path, method: :get %></li>
+          <li><%= button_to 'User Settings', user_path(current_user), method: :get %></li>
+          <li><%= button_to 'Logout', logout_path, method: :get %></li>
         </ul>
       </div>
     </nav>
