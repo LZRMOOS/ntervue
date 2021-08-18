@@ -12,6 +12,12 @@ Rails.application.routes.draw do
   # Not relevant!! #
   ##################
   namespace :questions do
+    resources :development_qs do
+      collection do
+        get :alerting
+        get :sorting
+      end
+    end
     resources :mysql_qs, only: :index
     put 'query', to: 'mysql_qs#query', as: 'send_query'
     resources :sorting_qs, only: :index
