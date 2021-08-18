@@ -1,0 +1,51 @@
+<!--##################-->
+<!--# Not relevant!! #-->
+<!--##################-->
+<%= render 'header' %>
+<div class="container mt-3">
+  <div class="box">
+    <div class="content is-normal">
+      <h2>Acceptance Criteria</h2>
+      <p>
+        <b>We have 5 security analysts in our Security Operations Center (SOC).</b>
+      </p>
+      <ul>
+        <li>3 <span class="tag">Tier I Analysts</span> (Alice, Bob, Eve)</li>
+        <li>1 <span class="tag is-warning is-light">Tier II Analyst</span> (Mallory)</li>
+        <li>1 <span class="tag is-danger is-light">Tier III Analyst</span> (Trent)</li>
+      </ul>
+      <p>
+        <b>
+          Everytime an alert (has a signature, body, priority, and timestamp) comes in, it is first assigned to a Tier I analyst.
+        </b>
+      </p>
+      <ul>
+        <li>Alerts will have a priority from 1-5 (1 being highest priority)</li>
+        <li>Timestamp represents the time the alert was created</li>
+      </ul>
+      <p>
+        <b>After triaging an alert, a analyst may either mark it as:
+        </b>
+      </p>
+      <ul>
+        <li>"not vulnerable,"</li>
+        <li>"vulnerable,"</li>
+        <li>or "escalate" (if they are not a Tier III analyst).</li>
+      </ul>
+      <p>
+        <b>If the alert needs escalation, it will then be assigned to the Tier II analysts. And finally, Tier II analysts may also escalate to Tier III analysts. The escalation chain ends at Tier III.
+        </b>
+      </p>
+    </div>
+    <div class="content">
+      <blockquote>
+        In the language and text editor of your choice, implement a First-In-First-Out (FIFO) queueing system where security analysts are assigned alerts evenly, and alerts are given priority based on the order in which they are received.
+        <span class="tag is-info is-light"><i>Extra credit: Also factor in priority rating.</i></span>
+      </blockquote>
+
+    </div>
+  </div>
+  <div class="box">
+  <textarea class="textarea" placeholder="def queueingSystem(alerts) { ... }" rows="35"></textarea>
+  </div>
+</div>
